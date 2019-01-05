@@ -1,0 +1,35 @@
+        <!-- change the order variable on click -->
+        <button type="button" class="btn btn-secondary" ng-click="order = 'currency'">Order by Name</button>
+        <button type="button" class="btn btn-secondary" ng-click="order = 'date'">Order by Currency</button>
+        <p>{{message}}</p>
+        <input type="text" ng-model="search">
+        <h5>Available Currency</h5>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="forex in forexes | orderBy: order | filter: search"  ng-show="forex.available">
+                <h5>{{forex.currency}} - {{forex.rate | currency}} <span class="btn btn-danger" ng-click="removeCurrency(forex)"> x </span></h5>
+                
+            </li>
+        </ul>
+        <h5>Unavailable Currency</h5>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="forex in forexes | orderBy: order | filter: search"  ng-hide="forex.available">
+                <h5>{{forex.currency}} - {{forex.rate | currency}} <span class="btn btn-danger" ng-click="removeCurrency(forex)"> x </span></h5>
+            </li>
+        </ul>
+        <br>
+        <form ng-submit="addCurrency()">
+            <div class="card">
+                <div class="container">
+                    <div class="form-group">
+                        <label for="currencyName">Currency Name</label>
+                        <input type="text" class="form-control" id="currencyName" placeholder="Enter Currency Name" ng-model="newCurrency.currency">
+                        <small id="emailHelp" class="form-text text-muted">Please enter the 3 letters abreviation, all CAPS.</small>
+                        <label for="rate">Rate</label>
+                        <input type="text" class="form-control" id="rate" placeholder="Enter Rate" ng-model="newCurrency.rate">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" ng-model="newCurrency.date">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>

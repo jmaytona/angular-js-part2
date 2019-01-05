@@ -1,0 +1,16 @@
+[{
+	"currency": "USD",
+	"rate": 0.25,
+	"date": "11/23/2018",
+	"available": true
+}, {
+	"currency": "JPY",
+	"rate": 5.7,
+	"date": "11/25/2018",
+	"available": true
+}, {
+	"currency": "EUR",
+	"rate": 1.3,
+	"date": "11/01/2018",
+	"available": false
+}]
